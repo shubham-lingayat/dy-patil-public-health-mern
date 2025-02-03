@@ -1,0 +1,139 @@
+.thankyou_01 {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: #fff;
+}
+
+.thankyou_01 img {
+    max-width: 100%
+}
+
+.thankyou_01 #canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.thankyou_01 .text span {
+    font-weight: 500;
+}
+
+.thankyou_01 .btn {
+    margin: 40px auto 0;
+    width: 200px;
+    position: relative;
+}
+
+.thankyou_01 .text span.complete {
+    font-weight: bold;
+    margin: 19px 0 7px;
+    display: inline-block;
+    font-size: 30px;
+}
+
+.thankyou_01 .btn::before {
+    content: "";
+    margin: 40px auto 0;
+    width: 73px;
+    /* background-image: url("../../public/images/dypatil/logo/4.webp"); */
+    /* cap image for button */
+    position: absolute;
+    left: -55px;
+    bottom: -5px;
+    height: 50px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+}
+
+.thankyou_01 .text {
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 100;
+    color: #000;
+    width:125%;
+}
+
+.thankyou_01 .tankyou {
+    max-width: 700px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.thankyou_01 .logo {
+    width: 220px;
+    margin: 0 auto 40px;
+    position: relative;
+    z-index: 9;
+    /* background-color: #3c478d; */
+    padding: 12px;
+}
+
+.thankyou_01 .cong {
+    width: 275px;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 9;
+}
+
+/*
+.tankyou::before {
+content: "";
+background-image: url(./images/bg1.jpg);
+position: absolute;
+width: 260px;
+height: 240px;
+background-size: 100%;
+top: -80px;
+right: -50px;
+}
+
+.tankyou::after {
+content: "";
+background-image: url(./images/bg2.jpg);
+position: absolute;
+width: 190px;
+height: 210px;
+background-size: 100%;
+left: -240px;
+bottom: -100px;
+}
+*/
+
+@media screen and (min-width:320px) and (max-width:850px) {
+    .thankyou_01 .text {
+        width: 97% !important;
+    }
+}
+
+.thankyou_01 .btn a {
+    background: #EB731E;
+    color: #fff;
+    text-decoration: none;
+    padding: 9px 40px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.thankyou_01 .btn a:hover {
+    background: #1a1a1a;
+}
+
+@media screen and (max-width:480px) {
+    .thankyou_01 .text span.complete {
+
+        font-size: 26px;
+        line-height: 25px;
+    }
+
+    .thankyou_01 .text {
+        font-size: 15px;
+        text-align: center;
+        font-weight: 100;
+        line-height: 22px;
+    }
+}
