@@ -151,11 +151,7 @@ function Home() {
       </div>
       {/* Hero */}
 
-      <section
-        className="container-fluid position-relative pt_001 d-lg-block px-0 d-none hero_section text-center"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
+      <section className="container-fluid position-relative pt_001 d-lg-block px-0 d-none hero_section text-center">
         <div className="container ">
           <div className="row pe-lg-0">
             <div className="col-lg-8">
@@ -190,7 +186,7 @@ function Home() {
                   />
                 </div>
                 <h6 className=" mt-2 py-1">Admissions Open 2025</h6>
-                <Form/>
+                <Form />
               </div>
             </div>
           </div>
@@ -395,10 +391,7 @@ function Home() {
       >
         <i className="bi bi-arrow-up"></i>
       </a>
-      <a
-        href="#programs"
-        className="btn c_btn  px-4 left_button bg-red"
-      >
+      <a href="#programs" className="btn c_btn  px-4 left_button bg-red">
         Programs
       </a>
       <button
@@ -442,7 +435,7 @@ function Home() {
               ></button>
             </div>
             <div className="modal-body p-0">
-              <Form/>
+              <Form />
             </div>
           </div>
         </div>

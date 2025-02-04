@@ -63,7 +63,7 @@ function Programs() {
               {/* Map Function - START */}
               {Object.entries(coursesData).map(
                 ([courseName, details], index) => (
-                  <li className="nav-item" role="presentation">
+                  <li className="nav-item mx-1" role="presentation">
                     <button
                       className={`nav-link ${index === 0 ? "active" : ""}`}
                       id={`tab-${index}-tab`}
@@ -109,18 +109,18 @@ function Programs() {
                       <div className="col-sm-6">
                         <div className="course-container">
                           <div
-                            className="accordion"
+                            className="accordion border-0"
                             id={`accordionProgramDesk${index}`}
                           >
                             {/* Inner Map Function - START */}
                             {Object.keys(details).map((key, i) => (
-                              <div key={key} className="accordion-item">
+                              <div key={key} className="accordion-item border-0">
                                 <h2
-                                  className="accordion-header"
+                                  className="accordion-header border-0"
                                   id={`accordian-${key}-${index}`}
                                 >
                                   <button
-                                    className={`accordion-button ${
+                                    className={`accordion-button border rounded ${
                                       key === "overview" ? "" : "collapsed"
                                     }`}
                                     type="button"
@@ -182,86 +182,68 @@ function Programs() {
       {/* Mobile Programs */}
       <div className="container d-lg-none">
         <div className="row">
-          <div className="col-md-12">
-            <h2 className="title_01 text-center">
+          <div className="col-md-12 text-center">
+            <h2 className="title_01">
               Our Programs <span className="horizontalLine"></span>
             </h2>
           </div>
           <div className="col-md-12">
-            <div className="course-container">
-            
-            <div
-                            className="accordion"
-                            id="accordionProgramMobile"
-                          >
-            {/* Map Function - START */}
-              {Object.entries(coursesData).map(
-                ([courseName, details], index) => (
-                          <div key={courseName} className="accordion-item">
-                                <h2
-                                  className="accordion-header"
-                                  id={`accordian-${courseName}-${index}`}
-                                >
-                                  <button
-                                    className={`accordion-button ${
-                                      index === 0 ? "" : "collapsed"
-                                    }`}
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target={`#accordian-collapse-${courseName}-${index}`}
-                                    aria-expanded={
-                                      index === 0 ? "true" : "false"
-                                    }
-                                    aria-controls={`accordian-collapse-${courseName}-${index}`}
-                                  >
-                                    {courseName}
-                                  </button>
-                                </h2>
-                                <div
-                                  id={`accordian-collapse-${courseName}-${index}`}
-                                  className={`accordion-collapse collapse ${
-                                    index === 0 ? "show" : ""
-                                  } `}
-                                  aria-labelledby={`accordian-${courseName}-${index}`}
-                                  data-bs-parent={`#accordionProgramMobile${index}`}
-                                >
-                                  <div className="accordion-body">
-                                    {/* Inner Map Function - START */}
-                                    {Object.keys(details).map((key, i) => (
-                                      <div key={key}>
-                                      {key}:
-                                            {/* Check if its contains an array for list */}
-                                            {Array.isArray(details[key]) ? (
-                                              <ul>
-                                                {details[key].map((item, j) => (
-                                                  <li key={j}>{item}</li>
-                                                ))}
-                                              </ul>
-                                            ) : (
-                                              <p>{details[key]}</p>
-                                            )}
-                                          </div>
+            <div className="accordion border-0 mb-2" id="accordionProgramMobile">
+              {Object.entries(coursesData).map(([courseName, details], index) => (
+                <div key={courseName} className="accordion-item border-0 mb-3">
+                  <h2 className="accordion-header border" id={`heading-${index}`}>
+                    <button
+                      className={`accordion-button ${index === 0 ? "" : "collapsed"}`}
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target={`#collapse-${index}`}
+                      aria-expanded={index === 0 ? "true" : "false"}
+                      aria-controls={`collapse-${index}`}
+                    >
+                      {courseName}
+                    </button>
+                  </h2>
+                  <div
+                    id={`collapse-${index}`}
+                    className={`accordion-collapse collapse ${index === 0 ? "show" : ""}`}
+                    aria-labelledby={`heading-${index}`}
+                    data-bs-parent="#accordionProgramMobile"
+                  >
+                    <div className="accordion-body border p-4">
+                        {Object.keys(details).map((key, i) => (
+                          <div key={key}>
+                            <h2>
+                                {key === "overview" ? `About ${courseName}` : key}
+                            </h2>
+                                {Array.isArray(details[key]) ? (
+                                  <ul>
+                                    {details[key].map((item, j) => (
+                                      <li key={j}>{item}</li>
                                     ))}
-                                    {/* Inner Map Function - END */}
-                                    <a
-                                      href="#"
-                                      className="btn c_btn py-2 px-3"
-                                      data-bs-toggle="modal"
-                                      data-bs-target="#exampleModal"
-                                    >
-                                      Enquire Now
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                  ))}
-                  
+                                  </ul>
+                                ) : (
+                                  <p>{details[key]}</p>
+                                )}
+                          </div>
+                        ))}
+                        <a
+                        href="#"
+                        className="btn c_btn py-2 px-3 mt-3"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
+                        Enquire Now
+                      </a>
+                    </div>
+                      
+                    </div>
                   </div>
+              ))}
             </div>
           </div>
-                        
-          </div>
         </div>
+      </div>
+
       
     </section>
   )};
