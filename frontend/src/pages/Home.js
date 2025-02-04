@@ -8,6 +8,7 @@ import AdvisoryMembers from "../components/AdvisoryMembers";
 import InternationalCollaboration from "../components/InternationalCollaboration";
 import WhyChooseUs2 from "../components/WhyChooseUs2";
 import SuccessStories from "../components/SuccessStories";
+import Form from "../components/Form";
 
 function Home() {
   const url = process.env.REACT_APP_URL || "#";
@@ -189,13 +190,7 @@ function Home() {
                   />
                 </div>
                 <h6 className=" mt-2 py-1">Admissions Open 2025</h6>
-                <iframe
-                  title="hero section"
-                  aria-label="DY PATIL NAVI MUMBAI 2025 - Public Health"
-                  frameBorder="0"
-                  className="zoho_form"
-                  src="https://forms.zohopublic.in/gladowlwebsolutionspvtltd/form/DYPATILNAVIMUMBAI2025PublicHealth/formperma/UJUsLQSjB90cQCfOhyAYojtaVxecxURtZvczgZZpFaM"
-                ></iframe>
+                <Form/>
               </div>
             </div>
           </div>
@@ -447,13 +442,7 @@ function Home() {
               ></button>
             </div>
             <div className="modal-body p-0">
-              <iframe
-                title="1"
-                aria-label="DY PATIL NAVI MUMBAI 2025 - Public Health"
-                frameBorder="0"
-                className="zoho_form"
-                src="https://forms.zohopublic.in/gladowlwebsolutionspvtltd/form/DYPATILNAVIMUMBAI2025PublicHealth/formperma/UJUsLQSjB90cQCfOhyAYojtaVxecxURtZvczgZZpFaM"
-              ></iframe>
+              <Form/>
             </div>
           </div>
         </div>

@@ -1,5 +1,15 @@
 const mongoose = require("mongoose");
 
+const UG_COURSES = [
+  "Bachelor of Public Health (BPH)",
+  "BSc in Environment & Sustainability (Bsc-ES)"
+];
+
+const PG_COURSES = [
+  "Master of Public Health",
+  "Master of Public Policy (MPP)"
+];
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -9,13 +19,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-	match: [/^\d{10}$/, "Phone number must be exactly 10 digits"], // Validation
+    match: [/^\d{10}$/, "Phone number must be exactly 10 digits"],
   },
   email: {
     type: String,
     required: true,
     unique: true,
-	match: [/.+@.+\..+/, "Please enter a valid email address"], // Validation
+    match: [/.+@.+\..+/, "Please enter a valid email address"],
   },
   level: {
     type: String,
@@ -25,35 +35,28 @@ const userSchema = new mongoose.Schema({
   programs: {
     type: String,
     required: true,
-    maxLength: ["Bachelor of Public Health (BPH)"],
+    enum: [...UG_COURSES, ...PG_COURSES],
   },
   state: {
     type: String,
     required: true,
-    required: ["mh", "up"],
+    enum: ["mh", "up"], // Fix: Use enum instead of required array
   },
   city: {
     type: String,
     required: true,
-    required: ["pune", "mumbai"],
-  },
+    enum: ["pune", "mumbai"], // Fix: Use enum instead of required array
+  }
 });
 
-// Dynamically setting allowed values for the "course" field
-const UG_COURSES = ["Bachelor of Public Health (BPH)", "BSc in Environment & Sustainability (Bsc-ES)"];
-const PG_COURSES = ["Master of Public Health", "Master of Public Policy (MPP)"];
-
+// Pre-validation hook to check if programs match the level
 userSchema.pre("validate", function (next) {
-  if (this.educationLevel === "undergraduate") {
-    this.schema.path("course").enumValues = UG_COURSES;
-  } else if (this.educationLevel === "postgraduate") {
-    this.schema.path("course").enumValues = PG_COURSES;
+  if (
+    (this.level === "undergraduate" && !UG_COURSES.includes(this.programs)) ||
+    (this.level === "postgraduate" && !PG_COURSES.includes(this.programs))
+  ) {
+    return next(new Error("Invalid program selected for the chosen level."));
   }
-
-  if (!this.schema.path("course").enumValues.includes(this.course)) {
-    return next(new Error("Invalid course selected."));
-  }
-
   next();
 });
 

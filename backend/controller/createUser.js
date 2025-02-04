@@ -6,6 +6,7 @@ exports.createUser = async (req, res) => {
     const { name, phone, email, level, programs, state, city } = req.body;
     if (!name || !phone || !email || !level || !programs || !state || !city) {
       console.log("not all fields...");
+      console.log(name, phone, email, level, programs, state, city);
       return res.status(400).json({
         status: 400,
         message: "Please fill all fields",
@@ -21,7 +22,7 @@ exports.createUser = async (req, res) => {
       city,
     });
     return res.status(200).json({
-      status: 201,
+      status: 200,
       message: "User created successfully",
       data: user,
     });
