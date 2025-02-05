@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Form = () => {
   const { register, handleSubmit } = useForm();
@@ -8,7 +10,6 @@ const Form = () => {
 
   const createStudent = async (data) => {
     console.log("Submitting Data:", data);
-
     try {
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/createUser`,
@@ -26,24 +27,41 @@ const Form = () => {
       if (!response.ok) {
         const errorData = await response.json();
         console.error("Error from server:", errorData);
-        alert(`Error: ${errorData.message || "Something went wrong!"}`);
+        // alert(`Error: ${errorData.message || "Something went wrong!"}`);
+        toast.error("Server Error");
         return;
       }
 
-      alert("Student created successfully!");
+      // alert("Student created successfully!");
+      toast.success('Application Submitted Successfully!')
       navigate("/");
     } catch (error) {
       console.error("Request failed:", error);
-      alert("Network error. Please try again.");
+      // alert("Network error. Please try again.");
+      toast.error("Network error. Please try again.");
+      
     }
   };
 
   return (
     <div className="p-4">
+       {/* Toast Container must be included */}
+       <ToastContainer 
+        position="top-right"
+        autoClose={3000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <form onSubmit={handleSubmit(createStudent)}>
         <div className="mb-3">
           <input
-            className="form-control p-3"
+            className="form-control p-2"
             type="text"
             placeholder="Enter Your Full Name"
             {...register("name", { required: true })}
@@ -52,7 +70,7 @@ const Form = () => {
 
         <div className="mb-3">
           <input
-            className="form-control p-3"
+            className="form-control p-2"
             type="tel"
             placeholder="Enter Your Phone Number"
             {...register("phone", { required: true })}
@@ -61,7 +79,7 @@ const Form = () => {
 
         <div className="mb-3">
           <input
-            className="form-control p-3"
+            className="form-control p-2"
             type="email"
             placeholder="Enter Your Email"
             {...register("email", { required: true })}
@@ -70,7 +88,7 @@ const Form = () => {
 
         <div className="mb-3">
           <select
-            className="form-select p-3"
+            className="form-select p-2"
             {...register("level", { required: true })}
           >
             <option value="" disabled selected>
@@ -83,7 +101,7 @@ const Form = () => {
 
         <div className="mb-3">
           <select
-            className="form-select p-3"
+            className="form-select p-2"
             {...register("programs", { required: true })}
           >
             <option value="" disabled selected>
@@ -106,7 +124,7 @@ const Form = () => {
 
         <div className="mb-3">
           <select
-            className="form-select p-3"
+            className="form-select p-2"
             {...register("state", { required: true })}
           >
             <option value="" disabled selected>
@@ -119,7 +137,7 @@ const Form = () => {
 
         <div className="mb-3">
           <select
-            className="form-select p-3"
+            className="form-select p-2"
             {...register("city", { required: true })}
           >
             <option value="" disabled selected>
