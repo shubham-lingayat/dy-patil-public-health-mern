@@ -1,6 +1,7 @@
 import React from "react";
 import '../pages/ThankYou.css';
 import { useEffect, useRef } from "react";
+import { ToastContainer } from "react-toastify";
 
 function ThankYou() {
   const url = process.env.REACT_APP_URL || "#";
@@ -93,6 +94,9 @@ function ThankYou() {
  
   return (
     <div className="thankyou_01">
+      {/* Toast Container for displaying messages */}
+      <ToastContainer position="top-right" autoClose={3000} theme="colored" />
+
       <canvas ref={canvasRef} className="grey darken-4" />
       <div className="tankyou">
           <div className="logo"><img src={`${url}images/dypatil/logo/thankyou.webp`} alt="logo"/> </div>

@@ -905,7 +905,7 @@ h6,
   justify-content: space-between;
 }
 .programImg {
-  height: 100vh;
+  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
@@ -2143,7 +2143,6 @@ a:hover {
   width: 60%;
 }
 .programImg {
-  min-height: 64vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;

@@ -9,6 +9,7 @@ import InternationalCollaboration from "../components/InternationalCollaboration
 import WhyChooseUs2 from "../components/WhyChooseUs2";
 import SuccessStories from "../components/SuccessStories";
 import Form from "../components/Form";
+import { ToastContainer } from "react-toastify";
 
 function Home() {
   const url = process.env.REACT_APP_URL || "#";
@@ -76,6 +77,9 @@ function Home() {
 
   return (
     <div>
+      {/* Toast Container for displaying messages */}
+      <ToastContainer position="top-right" autoClose={3000} theme="colored" />
+
       {/* header */}
       <div className="container-fluid h_nav sticky-top top_01 shadow">
         <div className="container">
@@ -370,7 +374,7 @@ function Home() {
                 <div className="footerDivider"></div>
                 <span className=" text-light">
                   © Copyright 2025 | D Y Patil University, Navi Mumbai. |
-                  Designed and developed by
+                  Designed and developed by 
                   <img
                     src={`${url}images/dypatil/logo/gladowl_logo.webp`}
                     height="20"
